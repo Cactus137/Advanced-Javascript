@@ -1,3 +1,4 @@
+/*
 const game = {
   team1: "Bayern Munich",
   team2: "Borrussia Dortmund",
@@ -38,6 +39,7 @@ const game = {
     team2: 6.5,
   },
 };
+*/
 
 /*
 // Coding Challenge #1
@@ -143,9 +145,10 @@ for (const [day, { open, close }] of entries) {
 } 
 */
 
+/*
 // Coding Challenge #2
 
-// /*
+ 
 // 1. Loop over the game.scored array and print each player name to the console, along with the goal number (Example: "Goal 1: Lewandowski")
 for (const [i, name] of game.scored.entries()) {
   console.log(`Goal ${i + 1}: ${name}`);
@@ -158,13 +161,13 @@ for (const odd of odds) {
 }
 avg = avg / odds.length;
 console.log(`AVG = ${avg}`);
-/*
-3. Print the 3 odds to the console, but in a nice formatted way, exaclty like this:
-      Odd of victory Bayern Munich: 1.33
-      Odd of draw: 3.25
-      Odd of victory Borrussia Dortmund: 6.5
-Get the team names directly from the game object, don't hardcode them (except for "draw"). HINT: Note how the odds and the game objects have the same property names 😉
-*/
+
+//3. Print the 3 odds to the console, but in a nice formatted way, exaclty like this:
+//      Odd of victory Bayern Munich: 1.33
+//      Odd of draw: 3.25
+//      Odd of victory Borrussia Dortmund: 6.5
+//Get the team names directly from the game object, don't hardcode them (except for "draw"). HINT: Note how the odds and the game objects have the same property names 😉
+
 for (const odd of Object.keys(game.odds)) {
   let name = game[odd] || "Draw";
   console.log(`Odd of ${name}: ${game.odds[odd]}`);
@@ -173,15 +176,13 @@ console.log("----");
 for (const [team, odd] of Object.entries(game.odds)) {
   const teamStr = team === "x" ? "draw" : `victory ${game[team]}`;
   console.log(`Odd of ${teamStr} ${odd}`);
-}
-/*
-BONUS: Create an object called 'scorers' which contains the names of the players who scored as properties, and the number of goals as the value. In this game, it will look like this:
-      {
-        Gnarby: 1,
-        Hummels: 1,
-        Lewandowski: 2
-      }
-*/
+} 
+//BONUS: Create an object called 'scorers' which contains the names of the players who scored as properties, and the number of goals as the value. In this game, it will look like this:
+//      {
+//        Gnarby: 1,
+//        Hummels: 1,
+//        Lewandowski: 2
+//      } 
 console.log("----");
 let scorers = {}; 
 for (const player of game.scored) {
@@ -190,4 +191,76 @@ for (const player of game.scored) {
 
 console.log(scorers);
 
-// */
+ */
+
+// const orderSet = new Set([
+//   'Pasta',
+//   'Pizza',
+//   'Pizza',
+//   'Risotto',
+//   'Pasta',
+//   'Pizza',
+// ]);
+
+// console.log(orderSet);
+
+// console.log(new Set('Jonas'));
+
+// console.log(orderSet.size);
+
+// console.log(orderSet.has('Pizza'));
+// console.log(orderSet.has('Bread'));
+
+// orderSet.add('Garlic Bread');
+// orderSet.add('Garlic Bread');
+// orderSet.delete('Risotto');
+// // orderSet.clear();
+// console.log(orderSet);
+
+// console.log(orderSet[0]);
+
+// for (const order of orderSet) {
+//   console.log(order);
+// }
+
+// // Example
+// const staff = ['Waiter', 'Chef', 'Waiter', 'Manager', 'Chef', 'Waiter'];
+// const staffUnique = [...new Set(staff)];
+
+// console.log(staff);
+// console.log(staffUnique);
+
+// console.log(new Set('levanthah').size);
+
+const rest = new Map();
+rest.set("name", "Classico Italiano");
+rest.set(1, "Firenze, Italy");
+rest.set(2, "Lisbon, Portugal");
+
+rest
+  .set("categories", ["Italian", "Pizzeria", "Vegetarian", "Organic"])
+  .set("open", 11)
+  .set("close", 22)
+  .set(true, 'We are open ...')
+  .set(false, 'We are close ..');
+
+console.log(rest.get('name'));
+console.log(rest.get(true));
+console.log(rest.get(false));
+console.log(rest.get(1));
+console.log(rest.get('1')); // undefined
+
+const time = 23;
+console.log(rest.get(time > rest.get('open') && time < rest.get('close')));
+
+console.log(rest.has('categories'));
+rest.delete(2);
+// rest.clear();
+const arr = [1, 2];
+rest.set(arr, 'Test');
+
+rest.set(document.querySelector('h1'), 'Heading');
+
+console.log(rest);
+console.log(rest.size);
+console.log(rest.get(arr));

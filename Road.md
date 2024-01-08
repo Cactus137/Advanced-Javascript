@@ -1,8 +1,9 @@
 ## javascript-advanced
+
 ```
 DESCRIPTION
 Course name: Javascript Advanced
-Auth: Đỗ Hồng Quân
+Auth: LeVanThanh
 Source: Udemy
 Resource: https://fpl.udemy.com/course/the-complete-javascript-course/learn/lecture/22648585?course_portion_id=467578&learning_path_id=6636278#overview
 Created at: 08:27:00 2024-02-01
@@ -12,6 +13,7 @@ Created at: 08:27:00 2024-02-01
 ## Lộ trình làm các bài Lab trên Udemy
 
 ### `- Lab 1`
+
 ```
 ---- SECTION 9
 101. Section intro
@@ -31,6 +33,7 @@ Created at: 08:27:00 2024-02-01
 ```
 
 ### `- Lab 2`
+
 ```
 ---- SECTION 9
 116. Sets
@@ -56,6 +59,7 @@ Created at: 08:27:00 2024-02-01
 ```
 
 ### `- Lab 3`
+
 ```
 ---- SECTION 11
 140. Section Intro
@@ -76,6 +80,7 @@ Created at: 08:27:00 2024-02-01
 ```
 
 ### `- Lab 4`
+
 ```
 ---- SECTION 11
 155. The Magic of Chaining Methods
@@ -92,6 +97,7 @@ Created at: 08:27:00 2024-02-01
 ```
 
 ### `- Lab 5`
+
 ```
 ---- SECTION 13: ADVANCED DOM AND EVENTS
 182. Section Intro
@@ -107,6 +113,7 @@ Created at: 08:27:00 2024-02-01
 ```
 
 ### `- Lab 6`
+
 ```
 ---- SECTION 13: ADVANCED DOM AND EVENTS
 193. DOM Traversing
@@ -119,6 +126,7 @@ Created at: 08:27:00 2024-02-01
 ```
 
 ### `- Lab 7`
+
 ```
 ---- SECTION 14: OOP WITH JAVASCRIPT
 204. Section Intro
@@ -147,6 +155,7 @@ Created at: 08:27:00 2024-02-01
 ```
 
 ### `- Lab 8`
+
 ```
 ---- SECTION 16: Asynchronous Javascript: Promises, Async/Await and AJAX
 244. Section Intro
@@ -173,4 +182,3 @@ Created at: 08:27:00 2024-02-01
 266. Other Promise Combinators: race, allSettled and any
 267. Coding Challenge #3 (Lab8.3)
 ```
-
