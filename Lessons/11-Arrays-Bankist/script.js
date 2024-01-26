@@ -1,7 +1,38 @@
 "use strict";
+// Coding Challenge #2
 
+/* 
+Chúng ta hãy quay trở lại nghiên cứu của Julia và Kate về loài chó. Lần này, họ muốn chuyển đổi tuổi của chó sang tuổi của con người và tính tuổi trung bình của những con chó trong nghiên cứu của họ.
 
+Tạo hàm 'calcAverageHumanAge', chấp nhận một mảng độ tuổi của chó ('ages') và thực hiện những việc sau theo thứ tự:
 
+1. Tính tuổi chó theo năm của con người bằng công thức sau: nếu chó <= 2 tuổi thì humanAge = 2 * dogAge. Nếu chó > 2 tuổi, humanAge = 16 + dogAge * 4.
+2. Loại trừ tất cả những con chó dưới 18 tuổi (giống như nuôi những con chó ít nhất 18 tuổi)
+3. Tính tuổi trung bình của con người của tất cả chó trưởng thành (bạn hẳn đã biết từ những thử thách khác về cách chúng tôi tính trung bình 😉)
+4. Chạy hàm cho cả hai tập dữ liệu thử nghiệm
+
+DỮ LIỆU KIỂM TRA 1: [5, 2, 4, 1, 15, 8, 3]
+DỮ LIỆU KIỂM TRA 2: [16, 6, 10, 5, 6, 1, 4]
+
+Chúc may mắn 😀
+*/
+// const dogAges = [5, 2, 4, 1, 15, 8, 3];
+// const calcAverageHumanAge = function (dogAges) {
+const calcAverageHumanAge = (dogAges) => {
+  const humanAges = dogAges.map((dogAge) =>
+    dogAge <= 2 ? 2 * dogAge : 16 + dogAge * 4
+  );
+  const humanAgeAfter = humanAges.filter((humanAge) => humanAge >= 18);
+  return humanAgeAfter.reduce((acc, cur, i, arr) => acc + cur / arr.length, 0);
+  
+};
+
+//   }
+// ;
+// console.log(humanAges);
+
+console.log(calcAverageHumanAge([5, 2, 4, 1, 15, 8, 3]));
+console.log(calcAverageHumanAge([16, 6, 10, 5, 6, 1, 4]));
 
 // Coding Challenge #1
 
