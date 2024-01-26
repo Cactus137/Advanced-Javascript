@@ -67,17 +67,37 @@ const displayMovements = function (movements) {
     const type = mov > 0 ? 'deposit' : 'withdrawal';
     const html = `        
     <div class="movements__row">
-      <div class="movements__type movements__type--${type}">${i + 1} ${type}</div>
+      <div class="movements__type movements__type--${type}">${
+      i + 1
+    } ${type}</div>
       <div class="movements__date">3 days ago</div>
       <div class="movements__value">${mov} €</div>
     </div>
   `;
-  containerMovements.insertAdjacentHTML('afterbegin', html);
+    containerMovements.insertAdjacentHTML('afterbegin', html);
   });
 };
 
-displayMovements(account1.movements); 
- 
+displayMovements(account1.movements);
+
+const createUsername = function (accs) {
+  accs.forEach(function (acc) {
+    acc.username = acc.owner
+      .toLowerCase()
+      .split(' ')
+      .map(name => name[0])
+      .join('');
+  });
+};
+
+createUsername(accounts);
+
+const calcPrintBalance = function (movements) {
+  const balance = movements.reduce((acc, cur) => acc + cur, 0);
+  labelBalance.textContent = `${balance} USD`
+};
+
+calcPrintBalance(account1.movements);
 /////////////////////////////////////////////////
 /////////////////////////////////////////////////
 // LECTURES
@@ -91,3 +111,18 @@ const currencies = new Map([
 const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
 
 /////////////////////////////////////////////////
+// const eurToUSD = 1.1;
+// const movementsUSD = movements.map((mov) => mov * eurToUSD);
+// console.log(movements);
+// console.log(movementsUSD);
+
+// console.log(accounts);
+
+const deposit = movements.filter(mov => mov > 0);
+// console.log(deposit);
+const withdrawal = movements.filter(mov => mov < 0);
+// console.log(withdrawal);
+
+const balance = movements.reduce((acc, cur) => acc + cur, 0);
+
+console.log(balance);
