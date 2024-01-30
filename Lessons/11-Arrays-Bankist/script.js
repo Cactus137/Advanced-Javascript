@@ -1,4 +1,81 @@
 "use strict";
+///////////////////////////////////////
+// Thử thách viết mã số 4
+
+// DỮ LIỆU KIỂM TRA:
+const dogs = [
+  { weight: 22, curFood: 250, owners: ["Alice", "Bob"] },
+  { weight: 8, curFood: 200, owners: ["Matilda"] },
+  { weight: 13, curFood: 275, owners: ["Sarah", "John"] },
+  { weight: 32, curFood: 340, owners: ["Michael"] },
+];
+// Julia và Kate vẫn đang nghiên cứu về chó và lần này họ đang nghiên cứu xem chó ăn quá nhiều hay quá ít.
+// Ăn quá nhiều nghĩa là khẩu phần ăn hiện tại của chó lớn hơn khẩu phần khuyến nghị, còn ăn quá ít thì ngược lại.
+// Ăn một lượng vừa phải có nghĩa là khẩu phần ăn hiện tại của chó nằm trong khoảng 10% trên và 10% dưới khẩu phần khuyến nghị (xem gợi ý).
+
+// 1. Lặp lại mảng chứa các đối tượng chó và đối với mỗi con chó, hãy tính phần thức ăn được đề xuất và thêm nó vào đối tượng làm thuộc tính mới. KHÔNG tạo mảng mới, chỉ cần lặp qua mảng đó. Forumla: khuyến nghịThực phẩm = trọng lượng ** 0,75 * 28. (Kết quả tính bằng gam thực phẩm và trọng lượng cần tính bằng kg)
+
+dogs.forEach((dog) => (dog.recFood = Math.trunc(dog.weight ** 0.75 * 28)));
+console.log(dogs);
+
+// 2. Tìm con chó của Sarah và đăng nhập vào bảng điều khiển xem nó ăn quá nhiều hay quá ít. GỢI Ý: Một số con chó có nhiều chủ, vì vậy trước tiên bạn cần tìm Sarah trong mảng chủ sở hữu, và vì vậy việc này hơi khó (có mục đích) 🤓
+
+// const dogSarah = dogs.find((dog) => dog.owners.includes("Sarah"));
+// console.log(dogSarah);
+// console.log(
+//   `Sarah's dog is eating too ${
+//     dogSarah.curFood > dogSarah.recFood ? "much" : "little"
+//   } `
+// );
+
+// 3. Tạo một mảng chứa tất cả chủ sở hữu của những con chó ăn quá nhiều ('ownersEatTooMuch') và một mảng chứa tất cả chủ sở hữu của những con chó ăn quá ít ('ownersEatTooLittle').
+
+const ownersEatTooMuch = dogs
+  .filter((dog) => dog.curFood > dog.recFood * 1, 10)
+  .flatMap((dog) => dog.owners);
+
+const ownersEatTooLittle = dogs
+  .filter((dog) => dog.curFood < dog.recFood * 1, 10)
+  .flatMap((dog) => dog.owners);
+console.log(ownersEatTooMuch);
+console.log(ownersEatTooLittle);
+
+// 4. Ghi một chuỗi vào bảng điều khiển cho mỗi mảng được tạo trong 3., như thế này: "Chó của Matilda và Alice và Bob ăn quá nhiều!" và "Chó của Sarah, John và Michael ăn quá ít!"
+
+console.log(`${ownersEatTooMuch.join(" and ")}'s dogs eat too much!`);
+console.log(`${ownersEatTooLittle.join(" and ")}'s dogs eat too little!`);
+
+// 5. Đăng nhập vào bảng điều khiển xem có con chó nào ăn CHÍNH XÁC lượng thức ăn được khuyến nghị hay không (chỉ đúng hoặc sai)
+
+console.log(dogs.some((dog) => dog.curFood === dog.recFood));
+
+// 6. Đăng nhập vào bảng điều khiển xem có con chó nào ăn một lượng thức ăn OK hay không (chỉ đúng hoặc sai)
+
+const checkDog = (dog) => (dog.curFood > dog.recFood * 0.90 && dog.curFood < dog.recFood * 1.10);
+
+console.log(dogs.some(checkDog));
+
+
+// 7. Tạo một mảng chứa những con chó đang ăn một lượng thức ăn OK (cố gắng sử dụng lại điều kiện được sử dụng trong 6.)
+
+const dogEatOK = dogs.filter(checkDog);
+console.log(dogEatOK);
+
+// 8. Tạo một bản sao nông của mảng chó và sắp xếp nó theo phần thức ăn được đề xuất theo thứ tự tăng dần (hãy nhớ rằng các phần nằm bên trong các đối tượng của mảng)
+
+const copyDog = dogs.slice().sort((a, b) => a.recFood - b.recFood);
+
+console.log(copyDog);
+
+
+// GỢI Ý 1: Sử dụng nhiều công cụ khác nhau để giải các thử thách này, bạn có thể sử dụng bài giảng tóm tắt để lựa chọn giữa chúng 😉
+// GỢI Ý 2: Nằm trong phạm vi 10% trên và dưới phần được đề xuất có nghĩa là: hiện tại > (được khuyến nghị * 0,90) && hiện tại < (được khuyến nghị * 1,10). Về cơ bản, phần hiện tại phải nằm trong khoảng từ 90% đến 110% phần được đề xuất.
+
+// const z = Array.from({ length: 100 }, () =>
+//   Array.from({ length: 3 }, () => Math.floor(Math.random() * (6 - 1 + 1) + 1))
+// );
+// console.log(z);
+
 // Coding Challenge #2
 
 /* 
@@ -18,21 +95,21 @@ Chúc may mắn 😀
 */
 // const dogAges = [5, 2, 4, 1, 15, 8, 3];
 // const calcAverageHumanAge = function (dogAges) {
-const calcAverageHumanAge = (dogAges) => {
-  const humanAges = dogAges.map((dogAge) =>
-    dogAge <= 2 ? 2 * dogAge : 16 + dogAge * 4
-  );
-  const humanAgeAfter = humanAges.filter((humanAge) => humanAge >= 18);
-  return humanAgeAfter.reduce((acc, cur, i, arr) => acc + cur / arr.length, 0);
-  
-};
+// const calcAverageHumanAge = (dogAges) => {
+//   const humanAges = dogAges.map((dogAge) =>
+//     dogAge <= 2 ? 2 * dogAge : 16 + dogAge * 4
+//   );
+//   const humanAgeAfter = humanAges.filter((humanAge) => humanAge >= 18);
+//   return humanAgeAfter.reduce((acc, cur, i, arr) => acc + cur / arr.length, 0);
+
+// };
 
 //   }
 // ;
 // console.log(humanAges);
 
-console.log(calcAverageHumanAge([5, 2, 4, 1, 15, 8, 3]));
-console.log(calcAverageHumanAge([16, 6, 10, 5, 6, 1, 4]));
+// console.log(calcAverageHumanAge([5, 2, 4, 1, 15, 8, 3]));
+// console.log(calcAverageHumanAge([16, 6, 10, 5, 6, 1, 4]));
 
 // Coding Challenge #1
 
